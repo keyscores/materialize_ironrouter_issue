@@ -1,0 +1,65 @@
+<head>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+
+<template name="broken">
+  <p> side nav rendered by Router.layout() </p>
+
+  <div class="center-align">
+    <h5 class="center"> BROKEN: Iron Router Router.layout helper </h5>
+    <p>Navigating from this template will break the next pages's buttons.
+      This layout uses the nav component directly. Not through iron:router layout helper</p>
+  </div>
+
+  <div class="center-align">
+    <a href="{{pathFor 'test_area'}}"> normal link to test area work fine </a>
+  </div>
+</template>
+
+
+<template name="working">
+  <!-- using nav direcly also works -->
+  {{> side_nav}}
+  <p> side nav NOT rendered by Router.layout() </p>
+
+
+  <div class="center-align">
+    <h5 class="center"> Not using Iron Router layout </h5>
+    <p> If you start navigating from here, the next page's buttons will render fine.
+      Hover will work as expected. When you come back, using the nav bar, hovering buttons will not work.
+    </p>
+
+  </div>
+  <br>
+  <div class="center-align">
+    <a href="{{pathFor 'test_area'}}"> normal link to test area work fine </a>
+  </div>
+
+</template>
+
+<template name="test_area">
+  <div class="center-align">
+    <h5> test area </h5>
+    <p>
+      Notice that the hover, or first click may not work. That's the case if you
+      navigated through the Router.layout helper
+    </p>
+    <br>
+
+    <a class="btn"> hover me </a>
+
+    <br>
+
+    <!-- Dropdown Trigger -->
+     <P class='dropdown-button btn' href='#' data-activates='dropdown1'>Drop Me!</P>
+
+     <!-- Dropdown Structure -->
+     <ul id='dropdown1' class='dropdown-content'>
+       <li><a href="#!">one</a></li>
+       <li><a href="#!">two</a></li>
+       <li class="divider"></li>
+       <li><a href="#!">three</a></li>
+     </ul>
+  </div>
+</template>
